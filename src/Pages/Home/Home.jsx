@@ -1,6 +1,7 @@
 import bookingIcon from "../../assets/bookingIcon.png";
 import serviceIcon from "../../assets/service.png";
 import Banner from "./Banner/Banner";
+import Brands from "./Brands/Brands";
 
 const howItWorksItems = [
   {
@@ -126,6 +127,8 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      <Brands />
     </div>
   );
 };
