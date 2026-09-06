@@ -6,17 +6,19 @@ import bannerImg3 from "../../../assets/banner/banner3.png";
 
 const Banner = () => {
   return (
-    <Carousel showArrows>
-      <div>
-        <img src={bannerImg1} alt="Zap Shift delivery service" />
-      </div>
-      <div>
-        <img src={bannerImg2} alt="Fast and reliable delivery" />
-      </div>
-      <div>
-        <img src={bannerImg3} alt="Zap Shift logistics solutions" />
-      </div>
-    </Carousel>
+    <div className="w-full overflow-hidden rounded-xl">
+      <Carousel autoPlay infiniteLoop>
+        <div>
+          <img src={bannerImg1} alt="Zap Shift delivery service" />
+        </div>
+        <div>
+          <img src={bannerImg2} alt="Fast and reliable delivery" />
+        </div>
+        <div>
+          <img src={bannerImg3} alt="Zap Shift logistics solutions" />
+        </div>
+      </Carousel>
+    </div>
   );
 };
 
