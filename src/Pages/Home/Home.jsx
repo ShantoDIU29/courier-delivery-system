@@ -5,6 +5,7 @@ import Brands from "./Brands/Brands";
 import Faq from "./Faq/Faq";
 import Features from "./Features/Features";
 import MerchantCta from "./MerchantCta/MerchantCta";
+import Reviews from "./Reviews/Reviews";
 import Testimonials from "./Testimonials/Testimonials";
 
 const howItWorksItems = [
@@ -67,81 +68,83 @@ const serviceItems = [
 
 const Home = () => {
   return (
-    <div className="px-4 py-6 sm:px-6 lg:px-8">
-      <Banner />
+    <>
+      <Reviews />
+      <div className="px-4 py-6 sm:px-6 lg:px-8">
+        <Banner />
 
-      <section className="mt-10 rounded-2xl bg-slate-100 px-5 py-10 sm:px-8 lg:px-12">
-        <h2 className="mb-6 text-2xl font-bold text-[#033b43]">How it Works</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {howItWorksItems.map((item) => (
-            <article
-              key={item.title}
-              className={`min-h-44 rounded-2xl bg-white p-6 ${
-                item.active
-                  ? "border-2 border-sky-400"
-                  : "border-2 border-transparent"
-              }`}
-            >
-              <img
-                src={bookingIcon}
-                alt=""
-                className="mb-4 h-10 w-10 object-contain"
-              />
-              <h3 className="mb-2 text-sm font-bold text-[#033b43]">
-                {item.title}
-              </h3>
-              <p className="text-sm leading-6 text-gray-600">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-10 rounded-2xl bg-[#063f45] px-5 py-12 text-center sm:px-8 lg:px-16">
-        <h2 className="text-3xl font-bold text-white">Our Services</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80">
-          Enjoy fast, reliable parcel delivery with real-time tracking and zero
-          hassle. From personal packages to business shipments — we deliver on
-          time, every time.
-        </p>
-
-        <div className="mt-6 grid gap-4 text-center sm:grid-cols-2 lg:grid-cols-3">
-          {serviceItems.map((item) => (
-            <article
-              key={item.title}
-              className={`flex min-h-56 flex-col items-center rounded-2xl p-6 transition-colors ${
-                item.active ? "border-2 border-sky-400 bg-lime-300" : "bg-white"
-              }`}
-            >
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-violet-50">
+        <section className="mt-10 rounded-2xl bg-slate-100 px-5 py-10 sm:px-8 lg:px-12">
+          <h2 className="mb-6 text-2xl font-bold text-[#033b43]">
+            How it Works
+          </h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {howItWorksItems.map((item) => (
+              <article
+                key={item.title}
+                className={`min-h-44 rounded-2xl bg-white p-6 ${
+                  item.active
+                    ? "border-2 border-sky-400"
+                    : "border-2 border-transparent"
+                }`}
+              >
                 <img
-                  src={serviceIcon}
+                  src={bookingIcon}
                   alt=""
-                  className="h-9 w-9 object-contain"
+                  className="mb-4 h-10 w-10 object-contain"
                 />
-              </div>
-              <h3 className="max-w-xs text-base font-bold text-[#063f45]">
-                {item.title}
-              </h3>
-              <p className="mt-3 max-w-sm text-sm leading-5 text-gray-600">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+                <h3 className="mb-2 text-sm font-bold text-[#033b43]">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-6 text-gray-600">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <Brands />
+        <section className="mt-10 rounded-2xl bg-[#063f45] px-5 py-12 text-center sm:px-8 lg:px-16">
+          <h2 className="text-3xl font-bold text-white">Our Services</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80">
+            Enjoy fast, reliable parcel delivery with real-time tracking and
+            zero hassle. From personal packages to business shipments — we
+            deliver on time, every time.
+          </p>
+          <div className="mt-6 grid gap-4 text-center sm:grid-cols-2 lg:grid-cols-3">
+            {serviceItems.map((item) => (
+              <article
+                key={item.title}
+                className={`flex min-h-56 flex-col items-center rounded-2xl p-6 transition-colors ${
+                  item.active
+                    ? "border-2 border-sky-400 bg-lime-300"
+                    : "bg-white"
+                }`}
+              >
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-violet-50">
+                  <img
+                    src={serviceIcon}
+                    alt=""
+                    className="h-9 w-9 object-contain"
+                  />
+                </div>
+                <h3 className="max-w-xs text-base font-bold text-[#063f45]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-sm leading-5 text-gray-600">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <Features />
-
-      <MerchantCta />
-
-      <Testimonials />
-
-      <Faq />
-    </div>
+        <Brands />
+        <Features />
+        <MerchantCta />
+        <Testimonials />
+        <Faq />
+      </div>
+    </>
   );
 };
 
