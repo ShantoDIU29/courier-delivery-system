@@ -2,6 +2,7 @@ import bookingIcon from "../../assets/bookingIcon.png";
 import serviceIcon from "../../assets/service.png";
 import Banner from "./Banner/Banner";
 import Brands from "./Brands/Brands";
+import Faq from "./Faq/Faq";
 import Features from "./Features/Features";
 import MerchantCta from "./MerchantCta/MerchantCta";
 import Testimonials from "./Testimonials/Testimonials";
@@ -138,6 +139,8 @@ const Home = () => {
       <MerchantCta />
 
       <Testimonials />
+
+      <Faq />
     </div>
   );
 };
