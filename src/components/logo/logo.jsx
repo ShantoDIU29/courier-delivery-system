@@ -1,13 +1,12 @@
-import React from 'react';
+import logoImage from "../../assets/logo.png";
 
-const logo from '../../assets/logo.png'
-const logo = () => {
+const Logo = () => {
   return (
-    <div>
-<img src={logo} alt=""/>
+    <div className="flex items-end">
+      <img src={logoImage} alt="Zap Shift" />
+      <h3 className="text-3xl font-bold">zapShift</h3>
     </div>
   );
 };
 
-export default logo;
-
+export default Logo;
