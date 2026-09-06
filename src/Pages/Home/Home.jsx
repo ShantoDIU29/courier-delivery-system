@@ -1,7 +1,11 @@
-export default function Home(){
-    return (
-        <div>
-          <h2 className='italic'>This is Home uytuyuy</h2>
-        </div>
-    );
-}
+import Banner from "./Banner/Banner";
+
+const Home = () => {
+  return (
+    <div>
+      <Banner></Banner>
+    </div>
+  );
+};
+
+export default Home;
