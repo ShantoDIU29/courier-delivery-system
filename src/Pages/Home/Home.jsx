@@ -4,6 +4,7 @@ import Banner from "./Banner/Banner";
 import Brands from "./Brands/Brands";
 import Features from "./Features/Features";
 import MerchantCta from "./MerchantCta/MerchantCta";
+import Testimonials from "./Testimonials/Testimonials";
 
 const howItWorksItems = [
   {
@@ -135,6 +136,8 @@ const Home = () => {
       <Features />
 
       <MerchantCta />
+
+      <Testimonials />
     </div>
   );
 };
