@@ -2,6 +2,8 @@ import bookingIcon from "../../assets/bookingIcon.png";
 import serviceIcon from "../../assets/service.png";
 import Banner from "./Banner/Banner";
 import Brands from "./Brands/Brands";
+import Features from "./Features/Features";
+import MerchantCta from "./MerchantCta/MerchantCta";
 
 const howItWorksItems = [
   {
@@ -129,6 +131,10 @@ const Home = () => {
       </section>
 
       <Brands />
+
+      <Features />
+
+      <MerchantCta />
     </div>
   );
 };
