@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../../components/logo/logo";
 
 const NavBar = () => {
@@ -34,7 +35,7 @@ const NavBar = () => {
               <a href="#services">Services</a>
             </li>
             <li>
-              <a href="#coverage">Coverage</a>
+              <Link to="/coverage">Coverage</Link>
             </li>
             <li>
               <a href="#about">About Us</a>
@@ -67,9 +68,9 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="#coverage" className="hover:text-gray-950">
+            <Link to="/coverage" className="hover:text-gray-950">
               Coverage
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#about" className="hover:text-gray-950">
