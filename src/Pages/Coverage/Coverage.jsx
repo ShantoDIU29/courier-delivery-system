@@ -3,6 +3,10 @@ import { FaSearch } from "react-icons/fa";
 import warehouses from "../../assets/warehouses.json";
 
 const Coverage = () => {
+  const position = [51.505, -0.09]
+
+render(
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState(false);
 
@@ -20,6 +24,12 @@ const Coverage = () => {
       <h1 className="max-w-xl text-4xl font-extrabold leading-tight text-[#063f45] sm:text-5xl">
         We are available in 64 districts
       </h1>
+      <div></div>
+      <div>
+        <MapContainer>
+          
+        </MapContainer>
+      </div>
 
       <form
         onSubmit={handleSearch}
