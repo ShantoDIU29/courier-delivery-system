@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import warehouses from "../../assets/warehouses.json";
+import { useLoaderData } from "react-router-dom";
 
 const Coverage = () => {
   const position = [23.8103, 90.4125];
+  const serviceCenters = useLoaderData();
+  const districtCount = new Set(serviceCenters.map(({ district }) => district))
+    .size;
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState(false);
 
-  const matchingDistricts = warehouses.filter(({ district }) =>
+  const matchingDistricts = serviceCenters.filter(({ district }) =>
     district.toLowerCase().includes(searchTerm.trim().toLowerCase()),
   );
 
@@ -21,7 +24,7 @@ const Coverage = () => {
   return (
     <section className="px-5 py-12 sm:px-8 lg:px-12 ">
       <h1 className="max-w-xl text-4xl font-extrabold leading-tight text-[#063f45] sm:text-5xl">
-        We are available in 64 districts
+        We are available in {districtCount} districts
       </h1>
       <form
         onSubmit={handleSearch}
@@ -60,9 +63,18 @@ const Coverage = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
-            <Popup>Coverage available here</Popup>
-          </Marker>
+          {serviceCenters.map((center) => (
+            <Marker
+              key={`${center.latitude}-${center.longitude}`}
+              position={[center.latitude, center.longitude]}
+            >
+              <Popup>
+                <strong>{center.district}</strong>
+                <br />
+                Service Area: {center.covered_area.join(", ")}
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
       </div>
 
