@@ -1,11 +1,23 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { useLoaderData } from "react-router-dom";
 import {
   filterDistricts,
   getUniqueDistricts,
 } from "../../utils/districtSearch";
+
+const MapFocus = ({ center, zoom }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!center) return;
+
+    map.flyTo(center, zoom, { duration: 1.2 });
+  }, [center, map, zoom]);
+
+  return null;
+};
 
 const Coverage = () => {
   const position = [23.8103, 90.4125];
@@ -30,6 +42,11 @@ const Coverage = () => {
       district.toLowerCase().includes(searchTerm.trim().toLowerCase()),
     );
   }, [hasSearchQuery, searchTerm, serviceCenters]);
+
+  const focusedCenter = useMemo(() => {
+    if (!mapCenters.length) return null;
+    return [mapCenters[0].latitude, mapCenters[0].longitude];
+  }, [mapCenters]);
 
   return (
     <section className="px-5 py-12 sm:px-8 lg:px-12 ">
@@ -71,11 +88,12 @@ const Coverage = () => {
 
       <div className="mt-8 h-200 w-full border">
         <MapContainer
-          center={position}
-          zoom={8}
+          center={focusedCenter || position}
+          zoom={focusedCenter ? 11 : 8}
           scrollWheelZoom={false}
           className="h-200"
         >
+          <MapFocus center={focusedCenter} zoom={focusedCenter ? 11 : 8} />
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
