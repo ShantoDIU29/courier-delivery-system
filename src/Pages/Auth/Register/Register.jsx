@@ -32,6 +32,9 @@ const Register = () => {
           <input
             type="email"
             placeholder="Email"
+            required
+            aria-label="Email"
+            title="Please enter a valid email address"
             className="w-full rounded-xl border border-[#d8d8d8] bg-white px-4 py-3 text-base text-gray-700 outline-none transition focus:border-[#9fca4b] focus:ring-2 focus:ring-[#dfeaad]"
           />
         </div>
@@ -43,6 +46,11 @@ const Register = () => {
           <input
             type="password"
             placeholder="Password"
+            required
+            minLength={8}
+            maxLength={20}
+            aria-label="Password"
+            title="Password must be 8 to 20 characters long"
             className="w-full rounded-xl border border-[#d8d8d8] bg-white px-4 py-3 text-base text-gray-700 outline-none transition focus:border-[#9fca4b] focus:ring-2 focus:ring-[#dfeaad]"
           />
         </div>
