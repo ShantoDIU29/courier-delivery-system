@@ -32,12 +32,12 @@ const Register = () => {
       if (!response.ok) {
         throw new Error(result.message || "Unable to create your account.");
       }
+form.reset();
 
-      form.reset();
-      navigate("/login", {
+navigate("/login", {
+  replace: true,
   state: { registered: true },
 });
-      setSuccessMessage("Account created successfully. You can now log in.");
     } catch (error) {
       setErrorMessage(
         error instanceof Error
