@@ -8,7 +8,7 @@
 4. In one terminal, run the API with `npm run server`.
 5. In another terminal, run the frontend with `npm run dev`.
 
-The Vite development server proxies `/api` requests to `http://localhost:5000`. For a deployed frontend, set `VITE_API_URL` to the backend's base URL and configure `CLIENT_ORIGIN` on the backend to the frontend's origin.
+The Vite development server proxies `/api` requests to `http://localhost:5002`. For a deployed frontend, set `VITE_API_URL` to the backend's base URL and configure `CLIENT_ORIGIN` on the backend to the frontend's origin.
 
 ## Signup API
 
