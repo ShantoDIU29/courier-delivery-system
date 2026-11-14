@@ -32,13 +32,13 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content z-10 mt-3 w-44 rounded-box bg-base-100 p-2 shadow"
           >
             <li>
-              <a href="#services">Services</a>
+              <a href="/#services">Services</a>
             </li>
             <li>
               <Link to="/coverage">Coverage</Link>
             </li>
             <li>
-              <a href="#about">About Us</a>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
               <a href="#pricing">Pricing</a>
@@ -51,19 +51,19 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a
-          href="/"
+        <Link
+          to="/"
           aria-label="ZapShift home"
           className="btn btn-ghost h-auto px-2 text-xl hover:bg-transparent"
         >
           <Logo />
-        </a>
+        </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center gap-7 text-sm text-gray-600">
           <li>
-            <a href="#services" className="hover:text-gray-950">
+            <a href="/#services" className="hover:text-gray-950">
               Services
             </a>
           </li>
@@ -73,9 +73,9 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <a href="#about" className="hover:text-gray-950">
+            <Link to="/about" className="hover:text-gray-950">
               About Us
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#pricing" className="hover:text-gray-950">
@@ -96,25 +96,25 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-end gap-2">
-        <a
-          href="#signin"
+        <Link
+          to="/login"
           className="btn btn-ghost hidden border border-gray-200 bg-white px-5 text-gray-600 shadow-none hover:bg-gray-50 sm:inline-flex"
         >
           Sign In
-        </a>
-        <a
-          href="#signup"
+        </Link>
+        <Link
+          to="/register"
           className="btn border-0 bg-lime-300 px-5 text-gray-950 shadow-none hover:bg-lime-400"
         >
           Sign Up
-        </a>
-        <a
-          href="#signup"
+        </Link>
+        <Link
+          to="/register"
           aria-label="Get started"
           className="btn btn-circle border-0 bg-gray-900 text-xl text-lime-300 shadow-none hover:bg-gray-700"
         >
           ↗
-        </a>
+        </Link>
       </div>
     </nav>
   );

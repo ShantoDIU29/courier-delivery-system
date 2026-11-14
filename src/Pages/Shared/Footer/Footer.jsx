@@ -1,5 +1,6 @@
 import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import Logo from "../../../components/logo/logo";
 
 export default function Footer() {
@@ -24,12 +25,22 @@ export default function Footer() {
               "Contact",
             ].map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="transition hover:text-lime-300"
-                >
-                  {item}
-                </a>
+                {item === "About Us" ? (
+                  <Link to="/about" className="transition hover:text-lime-300">
+                    {item}
+                  </Link>
+                ) : (
+                  <a
+                    href={
+                      item === "Services"
+                        ? "/#services"
+                        : `#${item.toLowerCase().replace(" ", "-")}`
+                    }
+                    className="transition hover:text-lime-300"
+                  >
+                    {item}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

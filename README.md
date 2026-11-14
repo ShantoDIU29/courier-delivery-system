@@ -1,16 +1,19 @@
-# React + Vite
+# ZapShift
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Run the application
 
-Currently, two official plugins are available:
+1. Install the frontend dependencies with `npm install`.
+2. Install the API dependencies with `npm install --prefix server`.
+3. Copy `server/.env.example` to `server/.env` and set `MONGODB_URI` to your MongoDB connection string.
+4. In one terminal, run the API with `npm run server`.
+5. In another terminal, run the frontend with `npm run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The Vite development server proxies `/api` requests to `http://localhost:5000`. For a deployed frontend, set `VITE_API_URL` to the backend's base URL and configure `CLIENT_ORIGIN` on the backend to the frontend's origin.
 
-## React Compiler
+## Signup API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`POST /api/auth/register` accepts a JSON body with `name`, `email`, and `password`. It creates a user with a bcrypt-hashed password and returns `201` with the user's public profile. Email addresses are normalized to lowercase; duplicate email addresses return `409`. Invalid fields return `400`.
 
-## Expanding the ESLint configuration
+`POST /api/auth/login` accepts `email` and `password`, checks the password against its stored hash, and returns the user's public profile. Invalid credentials return `401`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`GET /api/health` returns the API health status.

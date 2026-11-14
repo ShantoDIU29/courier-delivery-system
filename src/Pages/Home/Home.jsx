@@ -103,7 +103,10 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl bg-[#063f45] px-5 py-12 text-center sm:px-8 lg:px-16">
+        <section
+          id="services"
+          className="mt-10 rounded-2xl bg-[#063f45] px-5 py-12 text-center sm:px-8 lg:px-16"
+        >
           <h2 className="text-3xl font-bold text-white">Our Services</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80">
             Enjoy fast, reliable parcel delivery with real-time tracking and
