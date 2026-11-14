@@ -1,11 +1,10 @@
-const configuredApiUrl = import.meta.env.VITE_API_URL?.trim().replace(/\/+$/, "");
-const isLocalApiUrl = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(
-  configuredApiUrl || "",
-);
+
+const configuredApiUrl = import.meta.env.VITE_API_URL
+  ?.trim()
+  .replace(/\/+$/, "");
 
 export const apiBaseUrl =
-  configuredApiUrl && !isLocalApiUrl
-    ? configuredApiUrl
-    : import.meta.env.PROD
-      ? "https://courier-delivery-system-api.onrender.com"
-      : "";
+  configuredApiUrl ||
+  (import.meta.env.PROD
+    ? "https://courier-delivery-system-api.onrender.com"
+    : "http://localhost:5002");
