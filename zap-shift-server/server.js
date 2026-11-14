@@ -1,3 +1,4 @@
+
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -11,16 +12,14 @@ const app = express();
 // CORS Configuration
 app.use(
   cors({
-   origin: [
-  "http://localhost:5173",
-  "https://courier-delivery-system.netlify.app",
-],
+    origin: [
+      "http://localhost:5173",
+      "https://courier-delivery-system.netlify.app",
+    ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-app.options(/.*/, cors());
 
 app.use(express.json());
 
@@ -39,8 +38,8 @@ mongoose
   .then(() => {
     console.log("MongoDB Connected Successfully!");
 
-    app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch((error) => {
