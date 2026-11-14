@@ -2,11 +2,12 @@ import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../../components/logo/logo";
 import { apiBaseUrl } from "../../../utils/api";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,6 +34,9 @@ const Register = () => {
       }
 
       form.reset();
+      navigate("/login", {
+  state: { registered: true },
+});
       setSuccessMessage("Account created successfully. You can now log in.");
     } catch (error) {
       setErrorMessage(
