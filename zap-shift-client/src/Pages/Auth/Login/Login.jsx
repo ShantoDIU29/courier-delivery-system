@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { apiBaseUrl } from "../../../utils/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,9 +19,8 @@ const Login = () => {
     setErrorMessage("");
 
     const formData = new FormData(event.currentTarget);
-    const apiUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "";
     try {
-      const response = await fetch(`${apiUrl}/api/auth/login`, {
+      const response = await fetch(`${apiBaseUrl}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

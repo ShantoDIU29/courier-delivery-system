@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../../components/logo/logo";
+import { apiBaseUrl } from "../../../utils/api";
 
 const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,9 +16,8 @@ const Register = () => {
     setSuccessMessage("");
 
     const formData = new FormData(event.currentTarget);
-    const apiUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "";
     try {
-      const response = await fetch(`${apiUrl}/api/auth/register`, {
+      const response = await fetch(`${apiBaseUrl}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
