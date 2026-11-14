@@ -15,9 +15,7 @@ const Register = () => {
     setSuccessMessage("");
 
     const formData = new FormData(event.currentTarget);
-const apiUrl = (
-  import.meta.env.VITE_API_URL || "http://localhost:5002"
-).replace(/\/$/, "");
+    const apiUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "";
     try {
       const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: "POST",
