@@ -11,7 +11,10 @@ const app = express();
 // CORS Configuration
 app.use(
   cors({
-    origin: "http://localhost:5173",
+   origin: [
+  "http://localhost:5173",
+  "https://courier-delivery-system.netlify.app",
+],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
