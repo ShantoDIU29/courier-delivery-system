@@ -41,13 +41,13 @@ const NavBar = () => {
               <Link to="/about">About Us</Link>
             </li>
             <li>
-              <a href="#pricing">Pricing</a>
+              <Link to="/pricing">Pricing</Link>
             </li>
             <li>
-              <a href="#blog">Blog</a>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -78,19 +78,19 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <a href="#pricing" className="hover:text-gray-950">
+            <Link to="/pricing" className="hover:text-gray-950">
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#blog" className="hover:text-gray-950">
+            <Link to="/blog" className="hover:text-gray-950">
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="hover:text-gray-950">
+            <Link to="/contact" className="hover:text-gray-950">
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

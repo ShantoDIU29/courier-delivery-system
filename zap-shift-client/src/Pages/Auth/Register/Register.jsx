@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../../components/logo/logo";
 import { apiBaseUrl } from "../../../utils/api";
@@ -52,7 +53,9 @@ navigate("/login", {
   return (
     <div className="w-full max-w-[440px] pt-2">
       <div className="mb-9">
-        <Logo />
+        <Link to="/" aria-label="ZapShift home">
+          <Logo />
+        </Link>
       </div>
 
       <h1 className="text-[2.5rem] font-extrabold leading-none tracking-[-0.06em] text-[#0d0d0d]">

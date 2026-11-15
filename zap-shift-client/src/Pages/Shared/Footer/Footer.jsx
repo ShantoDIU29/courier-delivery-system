@@ -7,7 +7,9 @@ export default function Footer() {
   return (
     <footer className="mx-4 mt-10 rounded-3xl bg-[#0b0b0b] px-6 py-12 text-center text-white sm:px-10 lg:px-20">
       <div className="mx-auto max-w-4xl">
-        <Logo />
+        <Link to="/" aria-label="ZapShift home">
+          <Logo />
+        </Link>
         <p className="mx-auto mt-4 max-w-2xl text-xs leading-5 text-white/75 sm:text-sm">
           Enjoy fast, reliable parcel delivery with real-time tracking and zero
           hassle. From personal packages to business shipments — we deliver on
@@ -27,6 +29,24 @@ export default function Footer() {
               <li key={item}>
                 {item === "About Us" ? (
                   <Link to="/about" className="transition hover:text-lime-300">
+                    {item}
+                  </Link>
+                ) : item === "Contact" ? (
+                  <Link
+                    to="/contact"
+                    className="transition hover:text-lime-300"
+                  >
+                    {item}
+                  </Link>
+                ) : item === "Blog" ? (
+                  <Link to="/blog" className="transition hover:text-lime-300">
+                    {item}
+                  </Link>
+                ) : item === "Pricing" ? (
+                  <Link
+                    to="/pricing"
+                    className="transition hover:text-lime-300"
+                  >
                     {item}
                   </Link>
                 ) : (
@@ -49,7 +69,9 @@ export default function Footer() {
         <div className="mt-6 flex justify-center gap-4">
           <a
             aria-label="LinkedIn"
-            href="#linkedin"
+            href="https://www.linkedin.com/in/shanto-roy-435007329/"
+            target="_blank"
+            rel="noreferrer"
             className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1677a8] text-sm transition hover:scale-105"
           >
             <FaLinkedinIn />
@@ -63,7 +85,9 @@ export default function Footer() {
           </a>
           <a
             aria-label="Facebook"
-            href="#facebook"
+            href="https://www.facebook.com/santoroy.99/"
+            target="_blank"
+            rel="noreferrer"
             className="flex h-7 w-7 items-center justify-center rounded-full bg-[#287be0] text-sm transition hover:scale-105"
           >
             <FaFacebookF />

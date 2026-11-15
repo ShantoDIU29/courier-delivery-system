@@ -7,6 +7,11 @@ import AuthLayout from "../layouts/AuthLayout";
 import Home from "../Pages/Home/Home";
 import Coverage from "../Pages/Coverage/Coverage";
 import About from "../Pages/About/About";
+import Contact from "../Pages/Contact/Contact";
+import Blog from "../Pages/Blog/Blog";
+import Pricing from "../Pages/Pricing/Pricing";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import RequireAuth from "./RequireAuth";
 
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
@@ -30,9 +35,29 @@ export const router = createBrowserRouter([
         path: "about",
         Component: About,
       },
+      {
+        path: "contact",
+        Component: Contact,
+      },
+      {
+        path: "blog",
+        Component: Blog,
+      },
+      {
+        path: "pricing",
+        Component: Pricing,
+      },
     ],
   },
 
+  {
+    path: "/dashboard",
+    element: (
+      <RequireAuth>
+        <Dashboard />
+      </RequireAuth>
+    ),
+  },
   {
     Component: AuthLayout,
     children: [

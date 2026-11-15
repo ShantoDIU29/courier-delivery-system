@@ -72,7 +72,7 @@ const Login = () => {
       localStorage.setItem("token", result.token);
       localStorage.setItem("user", JSON.stringify(result.user));
 
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       setErrorMessage(
         error instanceof Error
@@ -214,6 +214,13 @@ const Login = () => {
             className="text-[#8FA940] hover:underline"
           >
             Register
+          </Link>
+        </p>
+
+        <p className="mt-3 text-sm text-[#6b7280]">
+          Need help?{" "}
+          <Link to="/contact" className="text-[#8FA940] hover:underline">
+            Contact us
           </Link>
         </p>
 
